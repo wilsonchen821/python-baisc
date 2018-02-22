@@ -1,0 +1,39 @@
+def count_primes2(num):
+    primes = [2]  #create a list
+    x = 3
+    if num < 2: #prime number start at 2 so can't be smaller than 2 and must be absolut value
+        return 0  
+    while x <= num: #since x = 3 and num starts 3, so it would be true to rerun this while loop until break
+        for y in primes:  # use the primes list!
+            if x%y == 0:
+                x += 2
+                break
+        else:       #outside the for loop, so it blong to while loop
+            primes.append(x)
+            x += 2
+    print(primes)
+    return len(primes)
+    
+   """ 
+    count_prime2(10)
+    while 3<=15:
+      for 2 in primes: yes
+          3%2 not=0 go to else while loop
+          append x now [2,3]
+          now x=3+2=5
+    run the while loop: 5<=13:
+      check for loop 5%2 or 3 not =0 so go to else primes.append x=5. so primes[2,3,5] then x+2=7
+    run the while loop 7<=13:
+      chekc for loop 7%2,3,5 not =0 so go to esle primes.appendx=7 [2,3,5,7] then x+2=9
+    run the while loop 9<=13:
+     check for loop 9%2,3,5,7 there!!!!  9%3==0 so we dont add9+2=11 but we dont append to  prime because it is in for loop break it and
+     now x=11 go back to while loop:
+     11<=13
+     for loop check 11%[2,3,5,7]==0 no! so we break out to else loop：append 11 to prime. now prime[2,3,5,7,11] then 11+2=13
+     now check while 13<=13:
+      13%[2,3,5,7,11] not =0 so we append 13 in to prime[2,3,5,7,11,13]. then add 2 to next loop x=15
+      since while 15<=13 is false so we dont stop the loop
+    so final when we print(primes):
+[2,3,5,7,11,13]
+  """"
+          
